@@ -44,7 +44,7 @@ This boilerplate is perfect for:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/rohanpatriot/nextjs-directory-boilerplate.git
+   git clone https://github.com/rohanpatriot/nextjs-directory-boilerplate
    ```
 
 2. Install dependencies:
