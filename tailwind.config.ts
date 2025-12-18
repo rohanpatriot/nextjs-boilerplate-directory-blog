@@ -4,6 +4,7 @@ import animatePlugin from "tailwindcss-animate";
 import typography from '@tailwindcss/typography';
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",

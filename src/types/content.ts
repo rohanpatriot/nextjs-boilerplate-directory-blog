@@ -1,21 +1,9 @@
-export interface ContentMeta {
-  title: string;
-  topic?: string;
-  image?: string;
-  summary?: string;
-  virtue?: string;
-  audioUrl?: string;
-  author?: string;
-  date?: string;
-  tags?: string[];
-  [key: string]: unknown; // Allow custom metadata
-}
-
-export interface ContentItem {
-  fileName: string;
-  content: string;
-  meta: ContentMeta;
-}
+// Re-export types from new content system for backwards compatibility
+export type {
+  BaseContentMeta as ContentMeta,
+  ContentItem,
+  SEOConfig,
+} from '@/lib/content/types';
 
 export interface DirectoryConfig {
   name: string;

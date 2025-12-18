@@ -1,6 +1,6 @@
 "use client";
 
-import { ContentItem } from '@/types/content';
+import { ContentItem } from '@/lib/content/types';
 import ContentGrid from '../layout/ContentGrid';
 import TagFilter from '../TagFilter';
 import Pagination from '../Pagination';
@@ -23,7 +23,7 @@ export default function Search({ items }: { items: ContentItem[] }) {
     <div className="space-y-6">
       <div className="space-y-4">
         <SearchInput onSearch={handleSearch} />
-        <TagFilter 
+        <TagFilter
           tags={allTags}
           selectedTags={selectedTags}
           onChange={handleTagSelect}

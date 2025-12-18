@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from 'react';
-import { ContentItem } from '@/types/content';
+import { ContentItem } from '@/lib/content/types';
 import { directoryConfig } from '@/config/directory.config';
 
 export function useSearch(items: ContentItem[]) {
@@ -16,9 +16,9 @@ export function useSearch(items: ContentItem[]) {
         ${item.meta.summary}
         ${item.meta.tags?.join(' ')}
       `.toLowerCase();
-      
+
       const matchesSearch = searchContent.includes(query.toLowerCase());
-      const matchesTags = tags.length === 0 || 
+      const matchesTags = tags.length === 0 ||
         tags.every(tag => item.meta.tags?.includes(tag));
 
       return matchesSearch && matchesTags;
