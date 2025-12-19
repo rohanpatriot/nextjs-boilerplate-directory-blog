@@ -4,48 +4,96 @@
 
 @layer base {
   :root {
-    --destructive-foreground: 60 20% 95%;
-    --secondary-foreground: 60 20% 95%;
-    --popover-foreground: 60 10% 20%;
-    --primary-foreground: 60 20% 95%;
-    --accent-foreground: 60 20% 95%;
-    --muted-foreground: 60 10% 40%;
-    --card-foreground: 60 10% 20%;
-    --destructive: 0 60% 50%;
-    --background: 60 20% 95%;
-    --foreground: 60 10% 20%;
-    --secondary: 60 10% 40%;
-    --popover: 60 20% 95%;
-    --primary: 60 5% 20%;
-    --border: 60 10% 80%;
-    --accent: 60 8% 30%;
-    --muted: 60 14% 88%;
-    --input: 60 10% 75%;
-    --card: 60 14% 92%;
-    --ring: 60 10% 20%;
-    --radius: 0.5rem;
+    /*
+     * Editorial/Magazine Color System
+     * Warm, sophisticated palette inspired by literary magazines
+     * Primary accent: Classic editorial vermillion red
+     */
+
+    /* Core surfaces - warm paper tones */
+    --background: 40 33% 98%;           /* Warm ivory, like quality paper */
+    --foreground: 20 20% 12%;           /* Rich warm black, not harsh */
+
+    /* Card surfaces - subtle elevation */
+    --card: 40 25% 96%;                 /* Slightly warmer than bg */
+    --card-foreground: 20 20% 12%;
+
+    /* Popover/dropdown surfaces */
+    --popover: 40 33% 99%;
+    --popover-foreground: 20 20% 12%;
+
+    /* Primary - Editorial vermillion red */
+    --primary: 4 74% 49%;               /* Classic editorial red */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Warm stone gray */
+    --secondary: 30 8% 92%;             /* Warm light gray */
+    --secondary-foreground: 20 15% 25%;
+
+    /* Muted - Subtle backgrounds */
+    --muted: 35 15% 94%;                /* Soft warm gray */
+    --muted-foreground: 25 10% 45%;     /* Readable but subdued */
+
+    /* Accent - Deep ink navy */
+    --accent: 220 45% 15%;              /* Deep editorial navy */
+    --accent-foreground: 40 33% 98%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & inputs */
+    --border: 30 15% 88%;               /* Subtle warm border */
+    --input: 30 15% 88%;
+    --ring: 4 74% 49%;                  /* Focus ring matches primary */
+
+    /* Radius - Slightly smaller for editorial crispness */
+    --radius: 0.375rem;
+
+    /* Custom editorial colors */
+    --highlight: 45 100% 90%;           /* Warm highlight yellow */
+    --link: 4 74% 49%;                  /* Links match primary */
+    --link-hover: 4 74% 40%;            /* Darker on hover */
+    --caption: 25 10% 50%;              /* Image captions, metadata */
+    --divider: 30 15% 85%;              /* Section dividers */
   }
 
   .dark {
-    --destructive-foreground: 60 10% 95%;
-    --secondary-foreground: 60 5% 10%;
-    --popover-foreground: 60 10% 90%;
-    --primary-foreground: 60 5% 10%;
-    --accent-foreground: 60 10% 95%;
-    --muted-foreground: 60 10% 60%;
-    --card-foreground: 60 10% 90%;
-    --destructive: 0 60% 50%;
-    --background: 60 5% 10%;
-    --foreground: 60 10% 90%;
-    --secondary: 60 10% 70%;
-    --popover: 60 5% 15%;
-    --primary: 60 20% 90%;
-    --border: 60 10% 25%;
-    --accent: 60 8% 50%;
-    --muted: 60 5% 20%;
-    --input: 60 10% 30%;
-    --card: 60 5% 15%;
-    --ring: 60 10% 70%;
+    /* Dark mode - Rich, warm dark theme */
+    --background: 20 15% 7%;            /* Warm dark, not pure black */
+    --foreground: 35 20% 92%;           /* Warm off-white */
+
+    --card: 20 15% 10%;                 /* Elevated surfaces */
+    --card-foreground: 35 20% 92%;
+
+    --popover: 20 15% 12%;
+    --popover-foreground: 35 20% 92%;
+
+    --primary: 4 80% 58%;               /* Brighter red for dark mode */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 12% 18%;
+    --secondary-foreground: 35 15% 85%;
+
+    --muted: 20 12% 15%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 200 60% 70%;              /* Lighter blue accent in dark */
+    --accent-foreground: 20 15% 7%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 12% 20%;
+    --input: 20 12% 20%;
+    --ring: 4 80% 58%;
+
+    /* Dark mode custom */
+    --highlight: 45 80% 25%;
+    --link: 4 80% 62%;
+    --link-hover: 4 80% 70%;
+    --caption: 30 10% 55%;
+    --divider: 20 12% 22%;
   }
 }
 
@@ -54,11 +102,197 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-body;
+  html {
+    @apply scroll-smooth;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Editorial typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+    text-wrap: balance;
+  }
+
+  h1 {
+    @apply text-display font-semibold;
+  }
+
+  h2 {
+    @apply text-headline font-semibold;
+  }
+
+  h3 {
+    @apply text-title font-medium;
+  }
+
+  h4 {
+    @apply text-subtitle font-medium;
+  }
+
+  /* Reading-optimized body text */
+  p {
+    @apply text-body-lg leading-relaxed;
+    text-wrap: pretty;
+  }
+
+  /* Editorial link styling */
+  a:not([class]) {
+    @apply text-[hsl(var(--link))] underline underline-offset-2 decoration-[hsl(var(--link))/40];
+    @apply hover:text-[hsl(var(--link-hover))] hover:decoration-[hsl(var(--link-hover))];
+    @apply transition-colors duration-200;
+  }
+
+  /* Selection highlight */
+  ::selection {
+    @apply bg-[hsl(var(--highlight))] text-foreground;
+  }
+
+  /* Focus visible for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Smooth scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+/* Editorial prose styling for MDX content */
+@layer components {
+  .prose-editorial {
+    @apply prose prose-lg max-w-none;
+
+    /* Headings */
+    @apply prose-headings:font-heading prose-headings:tracking-tight;
+    @apply prose-h1:text-display prose-h1:font-semibold prose-h1:mb-8;
+    @apply prose-h2:text-headline prose-h2:font-semibold prose-h2:mt-16 prose-h2:mb-6;
+    @apply prose-h3:text-title prose-h3:font-medium prose-h3:mt-12 prose-h3:mb-4;
+
+    /* Body text */
+    @apply prose-p:text-body-lg prose-p:leading-relaxed prose-p:text-foreground/90;
+    @apply prose-p:mb-6;
+
+    /* Links */
+    @apply prose-a:text-[hsl(var(--link))] prose-a:font-medium;
+    @apply prose-a:underline prose-a:underline-offset-2;
+    @apply prose-a:decoration-[hsl(var(--link))/40];
+
+    /* Lists */
+    @apply prose-li:text-body-lg prose-li:text-foreground/90;
+    @apply prose-ul:my-6 prose-ol:my-6;
+
+    /* Blockquotes - editorial pull quote style */
+    @apply prose-blockquote:border-l-4 prose-blockquote:border-primary;
+    @apply prose-blockquote:pl-6 prose-blockquote:py-1;
+    @apply prose-blockquote:text-title prose-blockquote:font-heading;
+    @apply prose-blockquote:italic prose-blockquote:text-foreground/80;
+    @apply prose-blockquote:not-italic prose-blockquote:my-10;
+
+    /* Code */
+    @apply prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5;
+    @apply prose-code:rounded prose-code:text-[0.9em];
+    @apply prose-code:before:content-none prose-code:after:content-none;
+
+    /* Pre/code blocks */
+    @apply prose-pre:bg-[hsl(20,15%,10%)] prose-pre:text-[hsl(35,20%,92%)];
+    @apply prose-pre:rounded-lg prose-pre:my-8;
+
+    /* Images */
+    @apply prose-img:rounded-lg prose-img:my-10;
+
+    /* Figures & captions */
+    @apply prose-figcaption:text-caption prose-figcaption:text-center;
+    @apply prose-figcaption:text-[hsl(var(--caption))] prose-figcaption:mt-3;
+
+    /* Horizontal rule - editorial divider */
+    @apply prose-hr:border-[hsl(var(--divider))] prose-hr:my-16;
+
+    /* Strong/bold */
+    @apply prose-strong:font-semibold prose-strong:text-foreground;
+
+    /* Tables */
+    @apply prose-table:my-8;
+    @apply prose-th:font-heading prose-th:font-semibold;
+    @apply prose-td:text-body;
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger children animation delays */
+  .stagger-children > * {
+    @apply animate-slide-up opacity-0;
+  }
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 50ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 100ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 150ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 200ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 250ms; }
+  .stagger-children > *:nth-child(7) { animation-delay: 300ms; }
+  .stagger-children > *:nth-child(8) { animation-delay: 350ms; }
+  .stagger-children > *:nth-child(9) { animation-delay: 400ms; }
 }

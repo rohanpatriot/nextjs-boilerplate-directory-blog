@@ -8,6 +8,9 @@ import {
   generateWebSiteSchema,
 } from '@/lib/structured-data';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 
 const fontHeading = Cormorant_Garamond({
@@ -35,7 +38,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-body antialiased',
+          'min-h-screen bg-background font-body antialiased flex flex-col',
           fontHeading.variable,
           fontBody.variable
         )}
@@ -43,7 +46,23 @@ export default function RootLayout({
         <JsonLd
           data={[generateOrganizationSchema(), generateWebSiteSchema()]}
         />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              classNames: {
+                toast: 'bg-card border-border text-card-foreground shadow-editorial-lg',
+                title: 'font-heading font-medium',
+                description: 'text-muted-foreground text-caption',
+                actionButton: 'bg-primary text-primary-foreground',
+                cancelButton: 'bg-muted text-muted-foreground',
+              },
+            }}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );
