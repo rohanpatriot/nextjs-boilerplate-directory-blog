@@ -1,0 +1,58 @@
+name: Publish Docs to Wiki
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - '.github/workflows/publish-wiki.yml'
+
+jobs:
+  publish-wiki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Checkout Wiki Repo
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: wiki
+
+      - name: Verify Wiki Checkout
+        run: |
+          if [ ! -d "wiki/.git" ]; then
+            echo "Wiki repository not found or not initialized."
+            echo "Please enable the repository wiki and initialize it by creating at least one page in the GitHub UI."
+            exit 1
+          fi
+      - name: Sync Docs to Wiki
+        run: |
+          # Configure git
+          cd wiki
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          
+          # Clean existing content in wiki (excluding .git)
+          # We use find to avoid deleting .git directory
+          find . -mindepth 1 -not -path './.git' -not -path './.git/*' -exec rm -rf {} +
+          
+          # Copy docs content to wiki (including hidden files)
+          cp -r ../docs/. .
+          
+          # Rename README.md to Home.md for Wiki landing page
+          if [ -f "README.md" ]; then
+            mv README.md Home.md
+          fi
+          
+          # Commit and push changes
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update Wiki content from docs/"
+            git push
+          fi

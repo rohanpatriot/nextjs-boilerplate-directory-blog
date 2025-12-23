@@ -58,4 +58,16 @@ To enable the built-in GitHub Pages for this documentation:
 GitHub will automatically serve the documentation at:
 `https://[your-username].github.io/nextjs-directory-boilerplate/docs/`
 
-No additional configuration needed! GitHub Pages will automatically render the Markdown files.
+## GitHub Wiki Integration
+
+This documentation is automatically synced to the repository's GitHub Wiki via a GitHub Action.
+
+### Setup
+1. Enable the **Wiki** feature in repository **Settings** → **General** → **Features**.
+2. Create the first page (Home) in the Wiki manually if it doesn't exist (just to initialize the git repo).
+3. The `.github/workflows/publish-wiki.yml` action will run on the next push to `main` that changes `docs/`.
+
+### Structure
+- `docs/README.md` becomes the Wiki **Home** page.
+- `docs/_Sidebar.md` controls the Wiki sidebar navigation.
+- All other files are preserved with their directory structure.
