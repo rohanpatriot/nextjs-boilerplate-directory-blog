@@ -2,6 +2,21 @@
   "name": "nextjs-directory-boilerplate",
   "version": "0.2.0",
   "description": "A modern, customizable directory/blog template built with Next.js, MDX, and shadcn/ui",
+  "keywords": [
+    "nextjs",
+    "boilerplate",
+    "template",
+    "mdx",
+    "blog",
+    "directory",
+    "shadcn-ui",
+    "tailwindcss",
+    "typescript",
+    "seo",
+    "starter-kit",
+    "content-management",
+    "cms"
+  ],
   "private": true,
   "packageManager": "pnpm@9.15.0",
   "scripts": {
