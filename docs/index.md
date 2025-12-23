@@ -1,3 +1,8 @@
+---
+layout: default
+title: Home
+---
+
 # Next.js Directory/Blog Boilerplate Documentation
 
 Welcome to the comprehensive documentation for the Next.js Directory/Blog Boilerplate - a modern, customizable template for building content-driven websites.
@@ -9,20 +14,20 @@ Welcome to the comprehensive documentation for the Next.js Directory/Blog Boiler
 ## Quick Navigation
 
 ### Getting Started
-- [Installation & Setup](getting-started.md) - Get up and running in minutes
-- [Project Structure](getting-started.md#project-structure) - Understanding the codebase
-- [First Customization](getting-started.md#first-customization) - Make it yours
+- [Installation & Setup](getting-started) - Get up and running in minutes
+- [Project Structure](getting-started#project-structure) - Understanding the codebase
+- [First Customization](getting-started#first-customization) - Make it yours
 
 ### Core Features
-- [Content System](content-system.md) - MDX-powered content management
-- [Configuration](configuration.md) - Customize site and content settings
-- [Components](components.md) - UI components and patterns
-- [SEO](seo.md) - Built-in SEO optimization
+- [Content System](content-system) - MDX-powered content management
+- [Configuration](configuration) - Customize site and content settings
+- [Components](components) - UI components and patterns
+- [SEO](seo) - Built-in SEO optimization
 
 ### Advanced Topics
-- [Dark Mode](dark-mode.md) - Theming and customization
-- [Deployment](deployment.md) - Deploy to production
-- [Solutions](solutions/README.md) - Common issues and solutions
+- [Dark Mode](dark-mode) - Theming and customization
+- [Deployment](deployment) - Deploy to production
+- [Solutions](solutions/) - Common issues and solutions
 
 ## What's Inside
 
@@ -125,8 +130,8 @@ Every page automatically includes:
 
 ## License
 
-This project is released under the [MIT License](../LICENSE).
+This project is released under the [MIT License](https://github.com/rohanpatriot/nextjs-directory-boilerplate/blob/main/LICENSE).
 
 ---
 
-**Ready to dive in?** Start with [Getting Started](getting-started.md) →
+**Ready to dive in?** Start with [Getting Started](getting-started) →

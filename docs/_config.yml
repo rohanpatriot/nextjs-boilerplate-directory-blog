@@ -1,0 +1,37 @@
+# GitHub Pages configuration
+theme: jekyll-theme-cayman
+title: Next.js Directory Boilerplate Documentation
+description: Comprehensive documentation for the Next.js Directory/Blog Boilerplate
+show_downloads: true
+github:
+  repository_url: https://github.com/rohanpatriot/nextjs-directory-boilerplate
+  is_project_page: true
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Getting Started
+    url: getting-started
+  - title: Content System
+    url: content-system
+  - title: Configuration
+    url: configuration
+  - title: Components
+    url: components
+  - title: SEO
+    url: seo
+  - title: Dark Mode
+    url: dark-mode
+  - title: Deployment
+    url: deployment
+
+# Exclude from processing
+exclude:
+  - solutions/
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
