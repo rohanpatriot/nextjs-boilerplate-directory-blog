@@ -17,10 +17,18 @@ jobs:
 
       - name: Checkout Wiki Repo
         uses: actions/checkout@v4
+        continue-on-error: true
         with:
           repository: ${{ github.repository }}.wiki
           path: wiki
 
+      - name: Verify Wiki Checkout
+        run: |
+          if [ ! -d "wiki/.git" ]; then
+            echo "Wiki repository not found or not initialized."
+            echo "Please enable the repository wiki and initialize it by creating at least one page in the GitHub UI."
+            exit 1
+          fi
       - name: Sync Docs to Wiki
         run: |
           # Configure git
