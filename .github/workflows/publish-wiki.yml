@@ -30,7 +30,7 @@ jobs:
           
           # Clean existing content in wiki (excluding .git)
           # We use find to avoid deleting .git directory
-          find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +
+          find . -mindepth 1 -not -path './.git' -not -path './.git/*' -exec rm -rf {} +
           
           # Copy docs content to wiki
           cp -r ../docs/* .
