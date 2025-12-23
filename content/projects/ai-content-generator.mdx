@@ -44,12 +44,16 @@ An AI-powered content generation platform that helps marketers and content creat
 
 ```typescript
 import { OpenAIStream, StreamingTextResponse } from 'ai';
-import { Configuration, OpenAIApi } from 'openai-edge';
+import OpenAI from 'openai';
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 export async function POST(req: Request) {
   const { prompt } = await req.json();
 
-  const response = await openai.createChatCompletion({
+  const response = await openai.chat.completions.create({
     model: 'gpt-4',
     stream: true,
     messages: [{ role: 'user', content: prompt }],
@@ -60,7 +64,7 @@ export async function POST(req: Request) {
 }
 ```
 
-Using the [Vercel AI SDK](https://sdk.vercel.ai/docs) for seamless streaming integration with React Server Components.
+Using the modern [OpenAI SDK v4+](https://github.com/openai/openai-node) with the [Vercel AI SDK](https://sdk.vercel.ai/docs) for seamless streaming integration with React Server Components.
 
 ### Database Schema
 

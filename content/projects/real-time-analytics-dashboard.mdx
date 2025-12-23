@@ -40,22 +40,31 @@ A production-ready analytics dashboard that displays real-time metrics, user beh
 
 ### Real-Time Communication
 
-WebSocket integration for live updates:
+WebSocket integration for live updates (conceptual example):
 
 ```typescript
-// app/api/ws/route.ts
+// NOTE: This is pseudocode demonstrating the WebSocket pattern.
+// Next.js App Router does not provide built-in WebSocket support.
+// In production, you would implement this using:
+// - A custom Node.js server with the 'ws' library
+// - Vercel Edge Functions with WebSocket support
+// - Third-party services like Pusher, Ably, or Socket.io
+
+// Conceptual implementation
 import { NextRequest } from 'next/server';
-import { WebSocketServer } from 'ws';
 
 export async function GET(req: NextRequest) {
-  const { socket, response } = await upgradeWebSocket(req);
+  // In a real implementation, you would:
+  // 1. Set up a WebSocket server (e.g., using Node.js 'ws' library)
+  // 2. Handle the upgrade from HTTP to WebSocket protocol
+  // 3. Manage connections and broadcast updates
 
-  socket.on('message', async (message) => {
-    const metrics = await getLatestMetrics();
-    socket.send(JSON.stringify(metrics));
-  });
-
-  return response;
+  // Example handler logic (pseudocode):
+  // socket.on('message', async (message) => {
+  //   // Fetch latest metrics from your database
+  //   const metrics = await fetchMetricsFromDatabase();
+  //   socket.send(JSON.stringify(metrics));
+  // });
 }
 ```
 

@@ -138,7 +138,6 @@ Each content type has these options:
 
   // Feature toggles for this type
   features: {
-    audio: false,        // Enable audio player
     images: true,        // Enable featured images
     tags: true,          // Enable tag filtering
     search: true,        // Enable search
@@ -163,7 +162,6 @@ Each content type has these options:
   // Detail page display options
   detail: {
     showImage: true,     // Show featured image
-    showAudio: false,    // Show audio player (if audioUrl present)
     showTags: true,      // Show tags
     showAuthor: true,    // Show author
     showDate: true,      // Show publish date
