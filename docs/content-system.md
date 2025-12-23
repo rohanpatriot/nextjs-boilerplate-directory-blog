@@ -147,12 +147,11 @@ Your content is immediately available at:
 
 ```typescript
 features: {
-  audio: boolean;      // Enable audio player
   images: boolean;     // Enable featured images
   tags: boolean;       // Enable tag filtering
   search: boolean;     // Enable search
   pagination: boolean; // Enable pagination
-  virtueCard: boolean; // Enable virtue card display
+  audio: boolean;      // Enable audio player (optional)
 }
 ```
 
@@ -177,11 +176,10 @@ Controls what appears on the content detail page:
 ```typescript
 detail: {
   showImage: boolean;
-  showAudio: boolean;
   showTags: boolean;
   showAuthor: boolean;
   showDate: boolean;
-  showVirtue: boolean;
+  showAudio: boolean;  // For audio-enabled content types
 }
 ```
 

@@ -198,7 +198,7 @@ export default async function ContentDetailPage({ params }: PageProps) {
             <MDXRemote source={item.content} />
           </div>
 
-          {/* Virtue card for stories */}
+          {/* Optional virtue/moral card for educational content */}
           {detailConfig.showVirtue && item.meta.virtue && (
             <Card className="bg-accent/10 border-accent/30 mt-section-sm animate-fade-in">
               <CardContent className="p-8 text-center">

@@ -28,7 +28,7 @@ content/
 ```
 
 **Content Configuration** (`src/config/content.config.ts`):
-- Define content types with custom features (images, tags, audio, virtue cards)
+- Define content types with custom features (images, tags, search, pagination)
 - Configure listing and detail page behavior per type
 - Set pagination defaults and sort options
 

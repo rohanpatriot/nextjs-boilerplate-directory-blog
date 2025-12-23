@@ -18,7 +18,7 @@ Welcome to the Next.js Directory/Blog Boilerplate documentation.
 
 This boilerplate provides a flexible, config-driven system for building content-driven websites. Key features:
 
-- **Unified Content System** - Manage multiple content types (articles, stories, custom types) from a single configuration
+- **Unified Content System** - Manage multiple content types (articles, guides, custom types) from a single configuration
 - **SEO-First Design** - Automatic sitemap, RSS feed, and JSON-LD structured data
 - **Dark Mode** - System preference detection with manual toggle
 - **Type-Safe** - Full TypeScript support throughout

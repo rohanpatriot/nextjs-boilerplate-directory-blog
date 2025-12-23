@@ -52,10 +52,10 @@ Automatic dark mode with system preference detection and manual toggle - no extr
 - **📱 Mobile-First & Responsive** - Looks stunning on every device from phone to desktop
 - **🗺️ SEO Powerhouse** - Auto-generated sitemap, RSS feed, and JSON-LD structured data out of the box
 - **🖼️ Smart Image Handling** - Automatic image optimization powered by Next.js
-- **🎵 Multimedia Ready** - Optional audio player for podcasts, stories, and educational content
+- **🎵 Multimedia Ready** - Optional audio player for podcasts, tutorials, and educational content
 - **🏷️ Flexible Tag System** - Organize content with tags and categories for easy navigation
 - **🔧 Config-Driven Setup** - Customize everything through simple configuration files
-- **📖 Multi-Content Support** - Handle different content types (articles, stories, etc.) with ease
+- **📖 Multi-Content Support** - Handle different content types (articles, guides, etc.) with ease
 - **🚀 One-Click Deploy** - Deploy to Vercel in seconds with zero configuration
 
 ---

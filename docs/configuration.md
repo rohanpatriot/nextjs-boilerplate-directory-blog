@@ -21,7 +21,6 @@ export const directoryConfig: DirectoryConfig = {
 
   // Global feature toggles
   features: {
-    audio: true,      // Enable audio player support
     images: true,     // Enable image support
     tags: true,       // Enable tag filtering
     search: true,     // Enable search functionality
@@ -107,7 +106,7 @@ export const contentConfig: ContentConfig = {
   // Content type definitions
   types: {
     articles: { /* ... */ },
-    stories: { /* ... */ },
+    guides: { /* ... */ },
   },
 };
 ```
@@ -138,12 +137,10 @@ Each content type has these options:
 
   // Feature toggles for this type
   features: {
-    audio: false,
     images: true,
     tags: true,
     search: true,
     pagination: true,
-    virtueCard: false,
   },
 
   // Default sort settings
@@ -164,11 +161,9 @@ Each content type has these options:
   // Detail page display options
   detail: {
     showImage: true,
-    showAudio: false,
     showTags: true,
     showAuthor: true,
     showDate: true,
-    showVirtue: false,
   },
 }
 ```
