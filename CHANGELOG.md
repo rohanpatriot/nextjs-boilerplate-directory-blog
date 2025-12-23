@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Wiki publishing workflow authentication using Personal Access Token
+- Added comprehensive setup documentation for Wiki configuration
+
 ### Planned
 - Enhanced documentation and examples
 - Additional configuration options

@@ -1,3 +1,12 @@
+# This workflow publishes documentation from the docs/ directory to the GitHub Wiki
+# 
+# Setup Requirements:
+# 1. Enable the repository Wiki in GitHub settings
+# 2. Initialize the Wiki by creating at least one page via the GitHub UI
+# 3. Create a Personal Access Token (PAT) with 'repo' scope at https://github.com/settings/tokens
+# 4. Add the PAT as a repository secret named 'WIKI_TOKEN' at:
+#    https://github.com/<owner>/<repo>/settings/secrets/actions
+
 name: Publish Docs to Wiki
 
 on:
@@ -21,6 +30,7 @@ jobs:
         with:
           repository: ${{ github.repository }}.wiki
           path: wiki
+          token: ${{ secrets.WIKI_TOKEN }}
 
       - name: Verify Wiki Checkout
         run: |
@@ -30,6 +40,8 @@ jobs:
             exit 1
           fi
       - name: Sync Docs to Wiki
+        env:
+          WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
         run: |
           # Configure git
           cd wiki
@@ -54,5 +66,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update Wiki content from docs/"
-            git push
+            # Configure remote URL with token for authentication
+            git remote set-url origin https://x-access-token:${WIKI_TOKEN}@github.com/${{ github.repository }}.wiki.git
+            git push origin master
           fi
