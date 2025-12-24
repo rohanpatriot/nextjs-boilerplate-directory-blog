@@ -201,14 +201,15 @@ const result = await getContent({
 // Get single item
 const item = await getContentBySlug('articles', 'my-post-slug');
 
-// Get all tags
-const tags = await getAllTags('articles');
+// Get all tags (across all content types)
+const tags = await getAllTags();
 
 // Get content by tag
 const tagged = await getContentByTag('technology');
 
 // Get all slugs (for static generation)
-const slugs = await getAllContentSlugs('articles');
+const slugs = await getAllContentSlugs();
+// Returns: [{ contentType: 'articles', slug: 'my-post' }, ...]
 ```
 
 ## Images

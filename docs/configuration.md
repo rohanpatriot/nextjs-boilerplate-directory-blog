@@ -72,8 +72,6 @@ export const seoConfig: SEOConfig = {
   // Search engine verification codes
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
-    yandex: undefined,
-    yahoo: undefined,
   },
 };
 ```

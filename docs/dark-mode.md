@@ -28,43 +28,45 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 
 Theme colors are defined using CSS custom properties in `src/app/globals.css`:
 
-### Light Theme (default)
+### Light Theme (Editorial)
+
+The light theme uses warm, sophisticated tones inspired by literary magazines.
 
 ```css
 :root {
-  --background: 60 20% 95%;
-  --foreground: 60 10% 20%;
-  --card: 60 14% 92%;
-  --card-foreground: 60 10% 20%;
-  --primary: 60 5% 20%;
-  --primary-foreground: 60 20% 95%;
-  --secondary: 60 10% 40%;
-  --muted: 60 14% 88%;
-  --muted-foreground: 60 10% 40%;
-  --accent: 60 8% 30%;
-  --border: 60 10% 80%;
-  --input: 60 10% 75%;
-  --ring: 60 10% 20%;
+  --background: 40 33% 98%;           /* Warm ivory, like quality paper */
+  --foreground: 20 20% 12%;           /* Rich warm black */
+  --card: 40 25% 96%;                 /* Slightly warmer than background */
+  --card-foreground: 20 20% 12%;
+  --primary: 4 74% 49%;               /* Classic editorial vermillion red */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 30 8% 92%;             /* Warm stone gray */
+  --muted: 35 15% 94%;                /* Soft warm gray */
+  --muted-foreground: 25 10% 45%;
+  --accent: 220 45% 15%;              /* Deep editorial navy */
+  --border: 30 15% 88%;               /* Subtle warm border */
+  --input: 30 15% 88%;
+  --ring: 4 74% 49%;                  /* Focus ring matches primary */
 }
 ```
 
-### Dark Theme
+### Dark Theme (Editorial)
 
 ```css
 .dark {
-  --background: 60 5% 10%;
-  --foreground: 60 10% 90%;
-  --card: 60 5% 15%;
-  --card-foreground: 60 10% 90%;
-  --primary: 60 20% 90%;
-  --primary-foreground: 60 5% 10%;
-  --secondary: 60 10% 70%;
-  --muted: 60 5% 20%;
-  --muted-foreground: 60 10% 60%;
-  --accent: 60 8% 50%;
-  --border: 60 10% 25%;
-  --input: 60 10% 30%;
-  --ring: 60 10% 70%;
+  --background: 20 15% 7%;            /* Warm dark, not pure black */
+  --foreground: 35 20% 92%;           /* Warm off-white */
+  --card: 20 15% 10%;                 /* Elevated surfaces */
+  --card-foreground: 35 20% 92%;
+  --primary: 4 80% 58%;               /* Brighter red for dark mode */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 20 12% 18%;
+  --muted: 20 12% 15%;
+  --muted-foreground: 30 10% 55%;
+  --accent: 200 60% 70%;              /* Lighter blue accent in dark */
+  --border: 20 12% 20%;
+  --input: 20 12% 20%;
+  --ring: 4 80% 58%;
 }
 ```
 

@@ -137,12 +137,12 @@ Page navigation for content listings.
 **Location:** `src/components/Pagination.tsx`
 
 ```typescript
-import { Pagination } from '@/components/Pagination';
+import Pagination from '@/components/Pagination';
 
 <Pagination
   currentPage={1}
   totalPages={10}
-  basePath="/articles"
+  onPageChange={(page) => setCurrentPage(page)}
 />
 ```
 
@@ -191,11 +191,12 @@ Tag-based content filtering.
 **Location:** `src/components/TagFilter.tsx`
 
 ```typescript
-import { TagFilter } from '@/components/TagFilter';
+import TagFilter from '@/components/TagFilter';
 
 <TagFilter
   tags={['react', 'nextjs', 'typescript']}
-  selectedTag="react"
+  selectedTags={['react']}
+  onChange={(tags) => setSelectedTags(tags)}
 />
 ```
 
@@ -257,9 +258,9 @@ Optional audio playback for content.
 **Location:** `src/components/AudioPlayer.tsx`
 
 ```typescript
-import { AudioPlayer } from '@/components/AudioPlayer';
+import AudioPlayer from '@/components/AudioPlayer';
 
-<AudioPlayer src="/audio/episode-1.mp3" title="Episode 1" />
+<AudioPlayer audioUrl="/audio/episode-1.mp3" />
 ```
 
 Features:
