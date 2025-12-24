@@ -26,7 +26,7 @@ export const seoConfig: SEOConfig = {
     'https://github.com/devinsights',
     'https://twitter.com/devinsights',
   ],
-  logo: '/logo.png',
+  logo: '/logo.svg',
   defaultOgImage: '/og-default.png',
   defaultAuthor: 'DevInsights Team',
   defaultKeywords: ['web development', 'tutorials', 'guides', 'nextjs', 'react', 'javascript'],

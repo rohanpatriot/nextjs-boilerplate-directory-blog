@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#18181b"/>
+  <text x="256" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="180" font-weight="700" fill="#fafafa" text-anchor="middle">DI</text>
+  <text x="256" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="400" fill="#a1a1aa" text-anchor="middle">DevInsights</text>
+</svg>
