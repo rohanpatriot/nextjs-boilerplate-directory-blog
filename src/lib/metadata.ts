@@ -33,7 +33,7 @@ export function generateBaseMetadata(): Metadata {
       icon: [
         { url: '/favicon.svg', type: 'image/svg+xml' },
       ],
-      apple: '/logo.svg',
+      apple: '/apple-touch-icon.png',
     },
     robots: {
       index: true,
