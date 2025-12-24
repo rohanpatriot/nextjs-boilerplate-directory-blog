@@ -11,8 +11,7 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@/src': path.join(__dirname, 'src'), // Add this line
-      '@/stories': path.join(__dirname, 'src/stories'),
+      '@/src': path.join(__dirname, 'src'),
     };
     return config;
   },
