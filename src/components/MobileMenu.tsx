@@ -19,6 +19,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenCommandPalette: () => void;
   contentTypes: ContentTypeConfig[];
   currentPath: string;
 }
@@ -26,6 +27,7 @@ interface MobileMenuProps {
 export function MobileMenu({
   isOpen,
   onClose,
+  onOpenCommandPalette,
   contentTypes,
   currentPath,
 }: MobileMenuProps) {
@@ -62,8 +64,7 @@ export function MobileMenu({
               className="w-full justify-start gap-3 h-12 text-muted-foreground"
               onClick={() => {
                 onClose();
-                // TODO: Open command palette
-                console.log('Open search');
+                onOpenCommandPalette();
               }}
             >
               <Search className="h-4 w-4" />

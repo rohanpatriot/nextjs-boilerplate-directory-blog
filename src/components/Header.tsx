@@ -10,10 +10,12 @@ import { directoryConfig } from '@/config/directory.config';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { MobileMenu } from '@/components/MobileMenu';
+import { CommandPalette } from '@/components/CommandPalette';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const pathname = usePathname();
 
   // Get content types for navigation
@@ -34,8 +36,7 @@ export function Header() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        // TODO: Open command palette when implemented
-        console.log('Open search');
+        setIsCommandPaletteOpen(true);
       }
     };
 
@@ -100,10 +101,7 @@ export function Header() {
                 variant="ghost"
                 size="sm"
                 className="hidden sm:flex items-center gap-2 text-muted-foreground hover:text-foreground"
-                onClick={() => {
-                  // TODO: Open command palette
-                  console.log('Open search');
-                }}
+                onClick={() => setIsCommandPaletteOpen(true)}
               >
                 <Search className="h-4 w-4" />
                 <span className="text-caption hidden lg:inline">Search</span>
@@ -134,8 +132,15 @@ export function Header() {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
+        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
         contentTypes={contentTypes}
         currentPath={pathname}
+      />
+
+      {/* Command Palette */}
+      <CommandPalette
+        open={isCommandPaletteOpen}
+        onOpenChange={setIsCommandPaletteOpen}
       />
 
       {/* Spacer for fixed header */}
