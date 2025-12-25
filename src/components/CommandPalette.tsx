@@ -22,23 +22,34 @@ interface CommandPaletteProps {
 
 export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
   const router = useRouter();
-  const [allContent, setAllContent] = useState<ContentItem[]>([]);
+  const [allContent, setAllContent] = useState<Omit<ContentItem, 'content'>[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
-  // Load all content when the palette opens
+  // Load all content when the palette opens (only once)
   useEffect(() => {
-    if (open && allContent.length === 0) {
+    if (open && !hasLoaded) {
       setIsLoading(true);
       getAllContentForSearch()
         .then((items) => {
           setAllContent(items);
+          setHasLoaded(true);
         })
         .catch((error) => {
           console.error('Failed to load content:', error);
+          setHasLoaded(true); // Mark as loaded even on error to prevent retry loop
         })
         .finally(() => {
           setIsLoading(false);
         });
+    }
+  }, [open, hasLoaded]);
+
+  // Clear content when dialog closes to free memory
+  useEffect(() => {
+    if (!open && allContent.length > 0) {
+      setAllContent([]);
+      setHasLoaded(false);
     }
   }, [open, allContent.length]);
 
@@ -57,7 +68,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
     }
     acc[item.contentType].push(item);
     return acc;
-  }, {} as Record<string, ContentItem[]>);
+  }, {} as Record<string, Array<Omit<ContentItem, 'content'>>>);
 
   return (
     <CommandDialog open={open} onOpenChange={onOpenChange}>
@@ -83,7 +94,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                   {items.map((item) => (
                     <CommandItem
                       key={`${item.contentType}-${item.slug}`}
-                      value={`${item.meta.title} ${item.meta.summary || ''}`}
+                      value={`${item.contentType}/${item.slug} ${item.meta.title} ${item.meta.summary || ''} ${item.meta.tags?.join(' ') || ''}`}
                       onSelect={() => handleSelect(item.contentType, item.slug)}
                       className="flex items-start gap-3 py-3"
                     >

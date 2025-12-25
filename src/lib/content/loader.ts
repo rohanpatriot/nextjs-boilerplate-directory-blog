@@ -233,3 +233,14 @@ export function getContentTypes(): string[] {
 export function isValidContentType(contentType: string): boolean {
   return contentType in contentConfig.types;
 }
+
+/**
+ * Get all content for search (without the large MDX content field)
+ */
+export async function getAllContentForSearch(): Promise<
+  Array<Omit<ContentItem, 'content'>>
+> {
+  const items = loadAllContent();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  return items.map(({ content, ...rest }) => rest);
+}
